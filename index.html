@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>
+    <script src="javascript.js"></script>
+    <style>
+        * {
+            
+        }
+        .container{
+           
+            text-color: red;
+            text-align: center;
+        }
+        h1 {
+            color: black;
+        }
+        form {
+            padding: 200px;
+            margin: justify-self: start;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+   <h1>Code Quiz</h1> 
+   <span id="CheckTime"></span>
+</div>
+
+<form name="form" onsubmit="return score()">
+    <h3>1. What does API Stand For??</h3>
+    <input type="radio" name="q1" value="a">a. Agora Inc<br>
+    <input type="radio" name="q1" value="b">b. Application Programming Interface<br>
+    <input type="radio" name="q1" value="c">c. Application Program Intelligence<br>
+    <input type="radio" name="q1" value="d">d. American Program Interface<br>
+
+    <form name="form" onsubmit="return score()">
+    <h3>2. What does HTML Stand For?</h3>
+    <input type="radio" name="q2" value="a">a. Hawaiian Training Module Land<br>
+    <input type="radio" name="q2" value="b">b. Hypertext Markup Language<br>
+    <input type="radio" name="q2" value="c">c. HyperText Module Land<br>
+    <input type="radio" name="q2" value="d">d. HyperText Moon Landing<br>
+
+    <form name="form" onsubmit="return score()">
+    <h3>3. What does CSS Stand For?</h3>
+    <input type="radio" name="q3" value="a">a. Cascading Snow Sheets<br>
+    <input type="radio" name="q3" value="b">b. Cascading Style Sheets<br>
+    <input type="radio" name="q3" value="c">c. Cascade Slip n Slide<br>
+    <input type="radio" name="q3" value="d">d. Cascading Snow Slide<br>
+    <br>
+    <input type="submit" id="sendA" value="Submit">
+    <br>
+    <p id="p"></p>
+
+</form>
+
+</html>﻿
+
+<script> 
+
+function score()
+{
+   
+    var q1 = document.forms.form.q1.value;
+    var q2 = document.forms.form.q2.value;
+    var q3 = document.forms.form.q3.value;
+
+    //Array for the questions
+    var questions = [q1, q2, q3];
+
+    //Answers for each question
+    var answers = ["b", "b", "b"];
+
+    //variable to keep track of the points
+    var points = 0;
+    var total = 3;
+    //max score 
+
+    //Making use of a for loop to iterate over the questions and answers arrays
+    for (var i = 0; i < total; i++)
+    {
+    if (questions[i] == answers[i]) {
+            points = points + 1; //Increment the score by 2 for every correct answer given
+        }
+    }
+
+    
+    var q = document.getElementById("p");
+
+    q.style.fontSize = "40px";
+    q.style.textAlign = "center";
+    q.innerHTML = "You got " + points + " out of " + total;
+
+    return false;
+}
+var total_seconds = 30*1;
+        var c_minutes = parseInt(total_seconds/60);
+        var c_seconds = parseInt(total_seconds%60);
+        
+        function CheckTime(){
+        document.getElementById("quiz-time-left").innerHTML
+        = 'Time Left: ' + c_minutes + ' minutes ' + c_seconds + ' seconds ' ;
+        
+        if(total_seconds <=0){
+        setTimeout('document.quiz.submit()',1);
+        } else {
+        total_seconds = total_seconds -1;
+        c_minutes = parseInt(total_seconds/60);
+        c_seconds = parseInt(total_seconds%60);
+        setTimeout("CheckTime()",1000);
+        }}
+        setTimeout("CheckTime()",1000);
+        </script> 
+
+    </script>
+    <script>
+
+        
+
+</body>
+</html>
